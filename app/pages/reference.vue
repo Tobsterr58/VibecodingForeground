@@ -1,5 +1,46 @@
 <script setup lang="ts">
-const clients = ['Atex', 'PZK', 'Servis Centrum', 'Microwell', 'Thermoservis']
+const clients = [
+  {
+    image: 'https://images.unsplash.com/photo-1593419528756-3cdfa1615b86?w=1600&q=80&fit=crop&auto=format',
+    label: 'Športové oblečenie',
+    title: 'Atex',
+    subtitle: 'Web a e-shop pro sportovní značku',
+    description: 'Športové oblečenie a doplnky s dôrazom na kvalitu a dizajn pre aktívny životný štýl.',
+    link: 'atexsport.cz'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?w=1600&q=80&fit=crop&auto=format',
+    label: 'Priemyselná výroba',
+    title: 'PZK',
+    subtitle: 'Prezentace pro strategického dodavatele',
+    description: 'Dodávky špičkových materiálov a technické riešenia pre veľké korporácie a nadnárodné spoločnosti, s vlastnou výrobnou halou a materiálovou skúšobňou.',
+    link: 'pzk.cz'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1663433567177-9f94be0bff4c?w=1600&q=80&fit=crop&auto=format',
+    label: 'Sieťotlač a potlač',
+    title: 'Servis Centrum',
+    subtitle: 'Web pro tiskové studio',
+    description: 'Sieťotlač, digitálna a tampónová potlač pre firmy aj jednotlivcov v Brne a okolí.',
+    link: 'sc-brno.cz'
+  },
+  {
+    image: 'https://plus.unsplash.com/premium_photo-1683134512538-7b390d0adc9e?w=1600&q=80&fit=crop&auto=format',
+    label: 'Klimatizácia a bazénová technika',
+    title: 'Microwell',
+    subtitle: 'Web pro distributora klimatizační techniky',
+    description: 'Distribúcia klimatizačných systémov, tepelných čerpadiel a bazénovej techniky, vrátane servisu a odborného poradenstva.',
+    link: 'microwell.sk'
+  },
+  {
+    image: 'https://images.unsplash.com/photo-1653280668407-50b18ec4ef42?w=1600&q=80&fit=crop&auto=format',
+    label: 'Stavebníctvo',
+    title: 'Thermoservis',
+    subtitle: 'Prezentace stavební společnosti',
+    description: 'Stavebná spoločnosť realizujúca pozemné stavby a rekonštrukcie na kľúč.',
+    link: 'thermoservis.cz'
+  }
+]
 </script>
 
 <template>
@@ -34,17 +75,11 @@ const clients = ['Atex', 'PZK', 'Servis Centrum', 'Microwell', 'Thermoservis']
       </span>
     </section>
 
-    <section class="px-6 py-20">
-      <div class="mx-auto max-w-3xl divide-y divide-white/10 border-y border-white/10">
-        <div
-          v-for="(client, index) in clients"
-          :key="client"
-          class="flex cursor-default items-center gap-6 py-8 transition hover:bg-white/[0.03]"
-        >
-          <span class="font-display text-sm text-white/30">{{ String(index + 1).padStart(2, '0') }}</span>
-          <span class="font-display text-3xl text-white/85 sm:text-4xl">{{ client }}</span>
-        </div>
-      </div>
-    </section>
+    <ReferenceCarousel :clients="clients" />
+
+    <p class="mx-auto max-w-5xl px-6 py-[8vh] text-center text-xs text-white/25">
+      Fotografie jsou dočasné ukázkové obrázky (Unsplash) podle oboru klienta — nahradí se reálnými
+      screenshoty projektů.
+    </p>
   </div>
 </template>

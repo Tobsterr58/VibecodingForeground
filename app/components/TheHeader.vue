@@ -9,7 +9,9 @@ const links = [
 </script>
 
 <template>
-  <header class="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-6 py-5 md:px-12">
+  <header
+    class="fixed inset-x-0 top-0 z-[100] flex items-center justify-between border-b border-white/5 bg-ink/50 px-6 py-5 backdrop-blur-xl md:px-12"
+  >
     <NuxtLink to="/" class="font-display text-lg font-semibold tracking-tight text-white">
       Foreground
     </NuxtLink>

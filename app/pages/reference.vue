@@ -63,7 +63,6 @@ const clients = [
       </div>
 
       <div class="relative z-10 px-6 text-center">
-        <span class="text-xs uppercase tracking-[0.2em] text-white/40">Reference</span>
         <h1 class="mt-6 font-display text-4xl font-medium text-white sm:text-5xl md:text-6xl">
           Vybíráme si klienty,<br class="hidden sm:block" />
           se kterými nás baví pracovat.

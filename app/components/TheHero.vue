@@ -64,5 +64,15 @@ onMounted(() => {
   <RevealParagraph
     id="sjed-dolu"
     text="Radikální snížení nákladů a času: Díky integrovanému AI vývoji dodáváme hotová řešení ne za měsíce, ale za týdny, což otevírá dveře k inovacím i pro firmy s menšími rozpočty."
-  />
+  >
+    <template #cta>
+      <NuxtLink
+        to="/sluzby"
+        class="inline-flex items-center gap-2 text-sm uppercase tracking-[0.2em] text-white/60 transition hover:text-white"
+      >
+        Zobrazit všechny služby a řešení
+        <span aria-hidden="true" class="inline-block animate-bounce-x">→</span>
+      </NuxtLink>
+    </template>
+  </RevealParagraph>
 </template>

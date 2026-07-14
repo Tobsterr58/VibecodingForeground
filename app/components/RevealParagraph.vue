@@ -63,7 +63,7 @@ onBeforeUnmount(() => {
 
 <template>
   <div ref="wrapper" class="relative h-[240vh] bg-ink">
-    <div class="sticky top-0 flex h-screen items-center justify-center px-6">
+    <div class="sticky top-0 flex h-screen flex-col items-center justify-center px-6">
       <p class="mx-auto max-w-5xl text-center font-display text-4xl font-bold leading-snug sm:text-5xl md:text-6xl">
         <span
           v-for="(word, i) in words"
@@ -73,6 +73,13 @@ onBeforeUnmount(() => {
           >{{ word }}</span
         >
       </p>
+
+      <div
+        class="mt-12 transition-opacity duration-700"
+        :class="progress >= 1 ? 'opacity-100' : 'opacity-0'"
+      >
+        <slot name="cta" />
+      </div>
     </div>
   </div>
 </template>

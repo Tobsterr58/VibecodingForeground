@@ -1,43 +1,43 @@
 <script setup lang="ts">
 const clients = [
   {
-    image: 'https://images.unsplash.com/photo-1593419528756-3cdfa1615b86?w=1600&q=80&fit=crop&auto=format',
-    label: 'Športové oblečenie',
+    image: '/references/atex.jpg',
+    label: 'Sportovní oblečení',
     title: 'Atex',
     subtitle: 'Web a e-shop pro sportovní značku',
-    description: 'Športové oblečenie a doplnky s dôrazom na kvalitu a dizajn pre aktívny životný štýl.',
+    description: 'Sportovní oblečení a doplňky s důrazem na kvalitu a design pro aktivní životní styl.',
     link: 'atexsport.cz'
   },
   {
-    image: 'https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?w=1600&q=80&fit=crop&auto=format',
-    label: 'Priemyselná výroba',
+    image: '/references/pzk.jpg',
+    label: 'Průmyslová výroba',
     title: 'PZK',
     subtitle: 'Prezentace pro strategického dodavatele',
-    description: 'Dodávky špičkových materiálov a technické riešenia pre veľké korporácie a nadnárodné spoločnosti, s vlastnou výrobnou halou a materiálovou skúšobňou.',
+    description: 'Dodávky špičkových materiálů a technická řešení pro velké korporace a nadnárodní společnosti, s vlastní výrobní halou a materiálovou zkušebnou.',
     link: 'pzk.cz'
   },
   {
-    image: 'https://images.unsplash.com/photo-1663433567177-9f94be0bff4c?w=1600&q=80&fit=crop&auto=format',
-    label: 'Sieťotlač a potlač',
+    image: '/references/servis-centrum.jpg',
+    label: 'Sítotisk a potisk',
     title: 'Servis Centrum',
     subtitle: 'Web pro tiskové studio',
-    description: 'Sieťotlač, digitálna a tampónová potlač pre firmy aj jednotlivcov v Brne a okolí.',
+    description: 'Sítotisk, digitální a tamponový potisk pro firmy i jednotlivce v Brně a okolí.',
     link: 'sc-brno.cz'
   },
   {
-    image: 'https://plus.unsplash.com/premium_photo-1683134512538-7b390d0adc9e?w=1600&q=80&fit=crop&auto=format',
-    label: 'Klimatizácia a bazénová technika',
+    image: '/references/microwell.jpg',
+    label: 'Klimatizace a bazénová technika',
     title: 'Microwell',
     subtitle: 'Web pro distributora klimatizační techniky',
-    description: 'Distribúcia klimatizačných systémov, tepelných čerpadiel a bazénovej techniky, vrátane servisu a odborného poradenstva.',
+    description: 'Distribuce klimatizačních systémů, tepelných čerpadel a bazénové techniky, včetně servisu a odborného poradenství.',
     link: 'microwell.sk'
   },
   {
-    image: 'https://images.unsplash.com/photo-1653280668407-50b18ec4ef42?w=1600&q=80&fit=crop&auto=format',
-    label: 'Stavebníctvo',
+    image: '/references/thermoservis.jpg',
+    label: 'Stavebnictví',
     title: 'Thermoservis',
     subtitle: 'Prezentace stavební společnosti',
-    description: 'Stavebná spoločnosť realizujúca pozemné stavby a rekonštrukcie na kľúč.',
+    description: 'Stavební společnost realizující pozemní stavby a rekonstrukce na klíč.',
     link: 'thermoservis.cz'
   }
 ]
@@ -78,8 +78,8 @@ const clients = [
     <ReferenceCarousel :clients="clients" />
 
     <p class="mx-auto max-w-5xl px-6 py-[8vh] text-center text-xs text-white/25">
-      Fotografie jsou dočasné ukázkové obrázky (Unsplash) podle oboru klienta — nahradí se reálnými
-      screenshoty projektů.
+      Náhledy jsou reálné screenshoty webů klientů. Kliknutím na kartu se otevře skutečná stránka
+      projektu.
     </p>
   </div>
 </template>

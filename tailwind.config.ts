@@ -30,12 +30,17 @@ export default <Partial<Config>>{
         'bounce-slow': {
           '0%, 100%': { transform: 'translateY(0)', opacity: '0.6' },
           '50%': { transform: 'translateY(8px)', opacity: '1' }
+        },
+        'bounce-x': {
+          '0%, 100%': { transform: 'translateX(0)' },
+          '50%': { transform: 'translateX(6px)' }
         }
       },
       animation: {
         'gradient-x': 'gradient-x 6s ease infinite',
         float: 'float 7s ease-in-out infinite',
-        'bounce-slow': 'bounce-slow 2s ease-in-out infinite'
+        'bounce-slow': 'bounce-slow 2s ease-in-out infinite',
+        'bounce-x': 'bounce-x 1.4s ease-in-out infinite'
       },
       backgroundSize: {
         '200%': '200% 200%'

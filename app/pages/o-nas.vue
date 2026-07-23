@@ -47,20 +47,25 @@ const team: TeamMember[] = [
     name: 'Robert Galovič',
     role: 'Senior Full Stack Developer & Systems Specialist',
     contact: 'robert.galovic@4g.cz',
-    avatar: '/team/robert.svg'
+    avatar: '/team/robert.png'
   }
 ]
 
-const clients = [
-  'Atex',
-  'PZK',
-  'Servis Centrum',
-  'Microwell',
-  'Thermoservis',
-  "L'Oréal",
-  'Medicom Clinic',
-  'TopEstates',
-  'Brand Promotion'
+interface Client {
+  name: string
+  logo?: string
+}
+
+const clients: Client[] = [
+  { name: 'Atex', logo: '/clients/atex.png' },
+  { name: 'PZK', logo: '/clients/pzk.jpg' },
+  { name: 'Servis Centrum' },
+  { name: 'Microwell' },
+  { name: 'Thermoservis', logo: '/clients/thermoservis.png' },
+  { name: "L'Oréal", logo: '/clients/loreal.png' },
+  { name: 'Medicom Clinic' },
+  { name: 'TopEstates' },
+  { name: 'Brand Promotion' }
 ]
 
 function initials(name: string) {
@@ -73,14 +78,15 @@ function initials(name: string) {
 }
 
 const sections = [
-  { id: 'uvod', label: 'Úvod' },
-  { id: 'od-2014', label: 'Od 2014' },
-  { id: 'sluzby', label: 'Služby' },
-  { id: 'tym', label: 'Tým' },
-  { id: 'loga', label: 'Loga' }
+  { id: 'uvod', label: 'Úvod', glow: 'rgba(124,108,255,0.13)' },
+  { id: 'od-2014', label: 'Od 2014', glow: 'rgba(76,214,208,0.11)' },
+  { id: 'sluzby', label: 'Služby', glow: 'rgba(255,108,171,0.12)' },
+  { id: 'tym', label: 'Tým', glow: 'rgba(124,108,255,0.13)' },
+  { id: 'loga', label: 'Loga', glow: 'rgba(76,214,208,0.11)' }
 ]
 
 const activeIndex = ref(0)
+const activeGlow = computed(() => sections[activeIndex.value]?.glow ?? 'rgba(124,108,255,0.12)')
 const containerEl = ref<HTMLElement | null>(null)
 let observer: IntersectionObserver | null = null
 
@@ -112,12 +118,17 @@ onBeforeUnmount(() => observer?.disconnect())
 <template>
   <div>
     <TheHeader />
+    <CursorGlow :color="activeGlow" />
     <SectionDots :sections="sections" :active="activeIndex" @navigate="navigateTo" />
 
     <div ref="containerEl" class="h-screen snap-y snap-mandatory overflow-y-scroll scroll-smooth bg-ink">
       <!-- Úvod -->
-      <section id="uvod" class="flex min-h-screen snap-start items-center px-6 pt-24">
-        <RevealSlide class="mx-auto max-w-3xl text-center">
+      <section id="uvod" class="relative flex min-h-screen snap-start items-center overflow-hidden px-6 pt-24">
+        <div class="pointer-events-none absolute inset-0">
+          <div class="absolute inset-0" style="background: radial-gradient(75% 68% at 35% 42%, rgba(124,108,255,0.32), transparent 72%)" />
+          <div class="absolute left-[32%] top-[42%] h-[42rem] w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/35 blur-[130px]" />
+        </div>
+        <RevealSlide class="relative z-10 mx-auto max-w-3xl text-center">
           <h1 class="mt-6 font-display text-4xl font-medium leading-tight text-white sm:text-5xl">
             Jsme malý tým, který staví produkty rychle — s AI zabudovanou do každého kroku vývoje.
           </h1>
@@ -129,8 +140,12 @@ onBeforeUnmount(() => observer?.disconnect())
       </section>
 
       <!-- Od roku 2014 -->
-      <section id="od-2014" class="flex min-h-screen snap-start items-center px-6">
-        <RevealSlide class="mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
+      <section id="od-2014" class="relative flex min-h-screen snap-start items-center overflow-hidden px-6">
+        <div class="pointer-events-none absolute inset-0">
+          <div class="absolute inset-0" style="background: radial-gradient(75% 68% at 68% 50%, rgba(76,214,208,0.28), transparent 72%)" />
+          <div class="absolute right-[30%] top-1/2 h-[42rem] w-[42rem] translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-cyan/30 blur-[130px]" />
+        </div>
+        <RevealSlide class="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
           <span
             class="font-display text-7xl font-semibold text-transparent [-webkit-text-stroke:1.5px_rgba(255,255,255,0.3)] sm:text-8xl"
           >
@@ -144,8 +159,12 @@ onBeforeUnmount(() => observer?.disconnect())
       </section>
 
       <!-- Přehled služeb -->
-      <section id="sluzby" class="flex min-h-screen snap-start items-center px-6 py-24 md:px-16">
-        <RevealSlide class="mx-auto grid w-full max-w-6xl gap-16 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:items-center">
+      <section id="sluzby" class="relative flex min-h-screen snap-start items-center overflow-hidden px-6 py-24 md:px-16">
+        <div class="pointer-events-none absolute inset-0">
+          <div class="absolute inset-0" style="background: radial-gradient(75% 68% at 28% 45%, rgba(255,108,171,0.30), transparent 72%)" />
+          <div class="absolute left-[22%] top-[45%] h-[42rem] w-[42rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-pink/30 blur-[130px]" />
+        </div>
+        <RevealSlide class="relative z-10 mx-auto grid w-full max-w-6xl gap-16 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:items-center">
           <div class="text-center md:text-left">
             <svg width="110" height="24" viewBox="0 0 110 24" fill="none" class="mx-auto text-white/70 md:mx-0">
               <path
@@ -200,8 +219,12 @@ onBeforeUnmount(() => observer?.disconnect())
       </section>
 
       <!-- Tým -->
-      <section id="tym" class="flex min-h-screen snap-start items-center px-6 py-24 md:px-16">
-        <RevealSlide class="mx-auto grid w-full max-w-6xl gap-16 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:items-center">
+      <section id="tym" class="relative flex min-h-screen snap-start items-center overflow-hidden px-6 py-24 md:px-16">
+        <div class="pointer-events-none absolute inset-0">
+          <div class="absolute inset-0" style="background: radial-gradient(75% 68% at 72% 58%, rgba(124,108,255,0.32), transparent 72%)" />
+          <div class="absolute right-[24%] bottom-[28%] h-[42rem] w-[42rem] translate-x-1/2 rounded-full bg-accent/35 blur-[130px]" />
+        </div>
+        <RevealSlide class="relative z-10 mx-auto grid w-full max-w-6xl gap-16 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:items-center">
           <div class="text-center">
             <svg width="110" height="24" viewBox="0 0 110 24" fill="none" class="mx-auto text-white/70">
               <path
@@ -255,8 +278,12 @@ onBeforeUnmount(() => observer?.disconnect())
       </section>
 
       <!-- Loga -->
-      <section id="loga" class="flex min-h-screen snap-start items-center overflow-hidden px-6 py-24 md:px-16">
-        <RevealSlide class="mx-auto grid w-full max-w-6xl gap-16 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:items-center">
+      <section id="loga" class="relative flex min-h-screen snap-start items-center overflow-hidden px-6 py-24 md:px-16">
+        <div class="pointer-events-none absolute inset-0">
+          <div class="absolute inset-0" style="background: radial-gradient(75% 62% at 50% 68%, rgba(76,214,208,0.28), transparent 72%)" />
+          <div class="absolute left-1/2 bottom-[8%] h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-accent-cyan/30 blur-[130px]" />
+        </div>
+        <RevealSlide class="relative z-10 mx-auto grid w-full max-w-6xl gap-16 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:items-center">
           <div class="text-center md:text-left">
             <svg width="110" height="24" viewBox="0 0 110 24" fill="none" class="mx-auto text-white/70 md:mx-0">
               <path
@@ -282,23 +309,40 @@ onBeforeUnmount(() => observer?.disconnect())
               style="mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent)"
             >
               <div class="marquee-row flex w-max items-center gap-4 animate-marquee-left">
-                <span
-                  v-for="(client, index) in [...clients, ...clients]"
-                  :key="`row1-${index}`"
-                  class="flex-none rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-4 font-display text-lg text-white/70 transition hover:border-white/20"
-                >
-                  {{ client }}
-                </span>
+                <template v-for="(client, index) in [...clients, ...clients]" :key="`row1-${index}`">
+                  <span
+                    v-if="client.logo"
+                    class="flex h-[60px] flex-none items-center rounded-2xl border border-black/5 bg-white px-6"
+                  >
+                    <img :src="client.logo" :alt="client.name" class="max-h-8 w-auto max-w-[150px] object-contain" />
+                  </span>
+                  <span
+                    v-else
+                    class="flex h-[60px] flex-none items-center rounded-2xl border border-white/10 bg-white/[0.03] px-6 font-display text-lg text-white/70 transition hover:border-white/20"
+                  >
+                    {{ client.name }}
+                  </span>
+                </template>
               </div>
 
               <div class="marquee-row flex w-max items-center gap-4 animate-marquee-right">
-                <span
+                <template
                   v-for="(client, index) in [...[...clients].reverse(), ...[...clients].reverse()]"
                   :key="`row2-${index}`"
-                  class="flex-none rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-4 font-display text-lg text-white/70 transition hover:border-white/20"
                 >
-                  {{ client }}
-                </span>
+                  <span
+                    v-if="client.logo"
+                    class="flex h-[60px] flex-none items-center rounded-2xl border border-black/5 bg-white px-6"
+                  >
+                    <img :src="client.logo" :alt="client.name" class="max-h-8 w-auto max-w-[150px] object-contain" />
+                  </span>
+                  <span
+                    v-else
+                    class="flex h-[60px] flex-none items-center rounded-2xl border border-white/10 bg-white/[0.03] px-6 font-display text-lg text-white/70 transition hover:border-white/20"
+                  >
+                    {{ client.name }}
+                  </span>
+                </template>
               </div>
             </div>
           </div>

@@ -40,7 +40,8 @@ export default <Partial<Config>>{
         'gradient-x': 'gradient-x 6s ease infinite',
         float: 'float 7s ease-in-out infinite',
         'bounce-slow': 'bounce-slow 2s ease-in-out infinite',
-        'bounce-x': 'bounce-x 1.4s ease-in-out infinite'
+        'bounce-x': 'bounce-x 1.4s ease-in-out infinite',
+        'spin-slow': 'spin 8s linear infinite'
       },
       backgroundSize: {
         '200%': '200% 200%'
